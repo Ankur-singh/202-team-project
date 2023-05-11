@@ -1,0 +1,22 @@
+GET http://localhost:8000/admin/users
+Authorization: Bearer {{auth_token}}
+
+###
+GET http://localhost:8000/user
+Authorization: Bearer {{auth_token}}
+
+###
+POST http://localhost:8000/user
+
+###
+GET http://localhost:8000/analytics/visitors?location=all
+Authorization: Bearer {{auth_token}}
+
+###
+GET http://localhost:8000/analytics/time-spent?location=all&date_range=all
+Authorization: Bearer {{auth_token}}
+
+
+###
+GET http://localhost:8000/analytics/classes?location=all&date_range=all
+Authorization: Bearer {{auth_token}}
