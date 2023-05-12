@@ -61,6 +61,16 @@ export const Navbar = (): JSX.Element => {
             <></>
           )}
 
+          {user.role === "Member" ? (
+            <Link to="/useraccount">
+              <li className="transition delay-150 hover:text-amber-500">
+                Profile
+              </li>
+            </Link>
+          ) : (
+            <></>
+          )}
+
           {user.sub && (
             <li
               className="transition delay-150 hover:text-amber-500"

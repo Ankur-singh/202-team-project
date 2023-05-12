@@ -1,5 +1,7 @@
 import React from "react";
 import clsx from "clsx";
+import { User } from "../types";
+import { useNavigate } from "react-router-dom";
 
 interface MembershipCardProps {
   type: "gold" | "platinum" | "silver";
@@ -101,7 +103,8 @@ const Membership: React.FC<MembershipCardProps> = ({
   };
 
   const importanceClassName = getImportanceClassName();
-
+  const user = JSON.parse(localStorage.getItem("user") ?? "{}") as User;
+  const navigate = useNavigate();
   return (
     <div
       className={clsx(
@@ -130,9 +133,9 @@ const Membership: React.FC<MembershipCardProps> = ({
           </li>
         ))}
       </ul>
-      {/* <button className="mt-4 rounded-md bg-cyan-400 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"> */}
-      {/*  Sign Up */}
-      {/* </button> */}
+      {user.role === "Admin" && <button className="mt-4 rounded-md bg-cyan-400 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400" onClick={() => navigate("/signup")}>
+        Sign Up
+       </button>}
     </div>
   );
 };
