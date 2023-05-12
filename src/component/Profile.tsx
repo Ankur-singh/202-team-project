@@ -33,7 +33,7 @@ function Card(classDetails: Class): JSX.Element {
   const { _id, name, time, duration, instructor, description, location } =
     classDetails;
   return (
-    <div className="mx-auto w-[60%] overflow-hidden rounded-lg bg-white p-4 shadow-lg">
+    <div className="mx-auto w-[60%] overflow-hidden rounded-lg bg-white p-4 shadow-lg my-2">
       <div className="px-4 py-2">
         <h2 className="text-lg font-semibold text-gray-800">{name}</h2>
         <p className="text-gray-600">{formatTime(time)}</p>
@@ -69,7 +69,7 @@ export const Profile = ({ type }: { type: "user" | "admin" }): JSX.Element => {
         />
       </div>
 
-      {userProfile?.user_email && (
+      {userProfile && (
         <div className="mt-8 flex justify-center">
           <h1 className="text-xl">
             {userProfile.first_name} {userProfile.last_name}

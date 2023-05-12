@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { axiosRequest } from "../AxiosRequest";
 
 const WORKOUT_OPTIONS: string[] = [
   "Treadmill",
   "Cycling",
   "Stair Machine",
-  "Weight Training",
+  "Weight Training"
 ];
 
 type Workout = (typeof WORKOUT_OPTIONS)[number];
@@ -36,6 +37,16 @@ export function Activity(): JSX.Element {
       stopTimer();
     };
   }, []);
+
+  const createActivity = (): void => {
+    void axiosRequest.post("/members/activities", {
+      name: workout,
+      start_time: startTime,
+      end_time: new Date(startTime.getTime() + elapsedTime * 1000),
+      location: "San Jose"
+    });
+  };
+
 
   return (
     <div className="mx-auto mt-8 px-48 py-8">
@@ -97,6 +108,7 @@ export function Activity(): JSX.Element {
                 className="mx-auto rounded-lg bg-red-500 px-4 py-2 text-center font-semibold text-white hover:bg-red-700"
                 onClick={() => {
                   stopTimer();
+                  createActivity();
                 }}
               >
                 Stop

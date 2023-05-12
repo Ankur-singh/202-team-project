@@ -71,8 +71,10 @@ export const Signup = (): JSX.Element => {
                 required
               />
             </div>
+
           </div>
-          <div className="mb-6">
+          <div className="mb-6 grid gap-6 md:grid-cols-2">
+            <div>
             <label className="text-md mb-2 block font-medium text-gray-900 dark:text-white">
               Email Address
             </label>
@@ -87,6 +89,21 @@ export const Signup = (): JSX.Element => {
               }}
               required
             />
+            </div>
+            <div>
+            {/*  Dropdown */}
+              <label className="text-md mb-2 block font-medium text-gray-900 dark:text-white">
+                Member Type
+              </label>
+              <select
+                id="memberType"
+                >
+                <option value="free">Free</option>
+                <option value="gold">Gold</option>
+                <option value="platnum">Platinum</option>
+              </select>
+            </div>
+
           </div>
           <div className="mb-6 grid gap-6 md:grid-cols-2">
             <div className="mb-6">
@@ -129,12 +146,7 @@ export const Signup = (): JSX.Element => {
           >
             Submit
           </button>
-          <div className="flex items-end justify-end">
-            <h3 className="text-orange-400">Already our member ?</h3>
-            <Link to="/userlogin" className="pl-2 text-orange-600">
-              Login
-            </Link>
-          </div>
+
         </form>
       </div>
     </div>

@@ -2,16 +2,16 @@ import React from "react";
 import clsx from "clsx";
 
 interface MembershipCardProps {
-  type: "gold" | "platinum" | "free";
+  type: "gold" | "platinum" | "silver";
   price: number;
   facilities: string[];
 }
 
 const MembershipCard: React.FC<MembershipCardProps> = ({
-  type,
-  price,
-  facilities,
-}) => {
+                                                         type,
+                                                         price,
+                                                         facilities
+                                                       }) => {
   const isPlatinum = type === "platinum";
 
   const cardClasses = clsx(
@@ -28,26 +28,26 @@ const MembershipCard: React.FC<MembershipCardProps> = ({
     "transition-all",
     {
       "transform scale-100": isPlatinum,
-      "transform scale-90": !isPlatinum,
+      "transform scale-90": !isPlatinum
     }
   );
 
   const titleClasses = clsx("text-lg", "font-bold", "mb-4", {
     "text-gold": type === "gold",
     "text-platinum": type === "platinum",
-    "text-silver": type === "free",
+    "text-silver": type === "silver"
   });
 
   const priceClasses = clsx("text-4xl", "mb-4", {
     "text-gold": type === "gold",
     "text-platinum": type === "platinum",
-    "text-silver": type === "free",
+    "text-silver": type === "silver"
   });
 
   const facilityClasses = clsx("text-sm", "mb-1", {
     "text-gold": type === "gold",
     "text-platinum": type === "platinum",
-    "text-silver": type === "free",
+    "text-silver": type === "silver"
   });
 
   return (
@@ -77,7 +77,7 @@ const MembershipCard: React.FC<MembershipCardProps> = ({
             "bg-platinum border-platinum hover:text-platinum hover:bg-transparent":
               type === "platinum",
             "bg-silver border-silver hover:text-silver hover:bg-transparent":
-              type === "free",
+              type === "silver"
           }
         )}
       >
@@ -87,10 +87,10 @@ const MembershipCard: React.FC<MembershipCardProps> = ({
   );
 };
 const Membership: React.FC<MembershipCardProps> = ({
-  price,
-  facilities,
-  type,
-}) => {
+                                                     price,
+                                                     facilities,
+                                                     type
+                                                   }) => {
   const getImportanceClassName = (): string => {
     switch (type) {
       case "platinum":
@@ -130,49 +130,54 @@ const Membership: React.FC<MembershipCardProps> = ({
           </li>
         ))}
       </ul>
-      <button className="mt-4 rounded-md bg-cyan-400 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
-        Sign Up
-      </button>
+      {/* <button className="mt-4 rounded-md bg-cyan-400 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"> */}
+      {/*  Sign Up */}
+      {/* </button> */}
     </div>
   );
 };
 
 export const MembershipWrapper: React.FC = () => {
   return (
-    <div className="flex h-[calc(100vh-64px)] w-full items-center justify-center bg-gray-100 bg-gradient-to-b from-black to-slate-700">
-      <div className="flex items-center justify-center">
-        <Membership
-          type="gold"
-          price={50}
-          facilities={[
-            "Full Access to Gym",
-            "Cardio Equipment",
-            "Strength Equipment",
-            "Locker Rooms",
-          ]}
-        />
-        <Membership
-          type="platinum"
-          price={100}
-          facilities={[
-            "Full Access to Gym",
-            "Cardio Equipment",
-            "Strength Equipment",
-            "Locker Rooms",
-            "Sauna",
-            "Swimming Pool",
-          ]}
-        />
-        <Membership
-          type="free"
-          price={0}
-          facilities={[
-            "Full Access to Gym",
-            "Cardio Equipment",
-            "Strength Equipment",
-          ]}
-        />
+    <>
+      <h1 className="bg-black to-slate-700 text-center text-5xl text-amber-500 pt-8"> Memberships</h1>
+      <div
+        className="flex h-[calc(100vh-100px)] w-full items-center justify-center bg-gray-100 bg-gradient-to-b from-black to-slate-700">
+        <div className="flex items-center justify-center">
+          <Membership
+            type="gold"
+            price={50}
+            facilities={[
+              "Full Access to Gym",
+              "Cardio Equipment",
+              "Strength Equipment",
+              "Locker Rooms"
+            ]}
+          />
+          <Membership
+            type="platinum"
+            price={100}
+            facilities={[
+              "Full Access to Gym",
+              "Cardio Equipment",
+              "Strength Equipment",
+              "Locker Rooms",
+              "Sauna",
+              "Swimming Pool"
+            ]}
+          />
+          <Membership
+            type="silver"
+            price={25}
+            facilities={[
+              "15 Days Free",
+              "Full Access to Gym",
+              "Cardio Equipment",
+              "Strength Equipment"
+            ]}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };

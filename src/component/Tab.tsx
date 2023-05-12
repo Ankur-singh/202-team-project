@@ -13,7 +13,7 @@ export function Tab({ tabs }: Props): JSX.Element {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   return (
-    <div className="mx-auto flex w-full max-w-md flex-col">
+    <div className="flex w-[40%] flex-col mx-auto">
       <div className="flex justify-center border-b border-gray-200">
         {tabs.map((tab, index) => (
           <button

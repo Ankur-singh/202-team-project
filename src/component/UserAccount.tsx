@@ -43,16 +43,16 @@ export const UserAccount = (): JSX.Element => {
         <Tab
           tabs={[
             { name: "Sessions", content: <WorkoutHistory /> },
-            {
-              name: "Summary",
-              content: (
-                <div className="mx-auto">
-                  <h2 className="mb-4 mt-8 text-center text-xl font-bold">
-                    Graphs
-                  </h2>
-                </div>
-              ),
-            },
+            // {
+            //   name: "Summary",
+            //   content: (
+            //     <div className="mx-auto">
+            //       <h2 className="mb-4 mt-8 text-center text-xl font-bold">
+            //         Graphs
+            //       </h2>
+            //     </div>
+            //   ),
+            // },
           ]}
         />
       </div>

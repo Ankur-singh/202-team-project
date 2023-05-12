@@ -9,12 +9,13 @@ export const About = (): JSX.Element => {
       <div className="flex flex-row">
         <div className="flex w-[50%] flex-col items-center justify-center">
           <p className="p-12 text-center text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit
-            scelerisque mauris pellentesque pulvinar pellentesque habitant morbi
-            tristique senectus. Dignissim suspendisse in est ante in nibh mauris
-            cursus mattis. Ultrices tincidunt arcu non sodales neque sodales ut
-            etiam. Et malesuada fames ac turpis egestas integer eget.
+          {/*  Gym description with locations at San Jose, San Fransisco, Santa Clara, Santa Cruz */}
+            Our gym was founded in 2021 and we have been providing great service to our customers since then.
+            We have locations in San Jose, San Fransisco, Santa Clara, and Santa Cruz.
+            We have a wide variety of equipment and classes to choose from.
+            We have a great team of trainers that are ready to help you achieve your fitness goals.
+            Sign up today and get a 15 day free trial!
+
           </p>
           <img
             src={about1}
@@ -24,12 +25,11 @@ export const About = (): JSX.Element => {
         </div>
         <div className="flex w-[50%] flex-col items-center justify-center">
           <p className="justify-center p-12 text-center text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit
-            scelerisque mauris pellentesque pulvinar pellentesque habitant morbi
-            tristique senectus. Dignissim suspendisse in est ante in nibh mauris
-            cursus mattis. Ultrices tincidunt arcu non sodales neque sodales ut
-            etiam. Et malesuada fames ac turpis egestas integer eget.
+          {/*  Facilities available at gym */}
+            We have a wide variety of equipment and facilities available for our customers.
+            We have a wide variety of equipment to help you achieve your goals.
+            We also have personal trainers available to help you with your fitness journey.
+            Come sign up today!
           </p>
           <img
             src={about2}

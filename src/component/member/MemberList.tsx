@@ -13,19 +13,23 @@ const MemberTable: React.FC = () => {
   );
 
   const handleCheckIn = (user: UserDetails): void => {
-    console.log(`Checked in ${user.user_email}`);
-    setAlertMessage(`Checked in ${user.user_email}`);
-    setTimeout(() => {
-      setAlertMessage("");
-    }, 3000);
+    void axiosRequest.post(`/employees/check-in/${user.id}`).then((res) => {
+      console.log(`Checked in ${user.user_email}`);
+      setAlertMessage(`Checked in ${user.user_email}`);
+      setTimeout(() => {
+        setAlertMessage("");
+      }, 3000);
+    });
   };
 
   const handleCheckOut = (user: UserDetails): void => {
-    console.log(`Checked out ${user.user_email}`);
-    setAlertMessage(`Checked out ${user.user_email}`);
-    setTimeout(() => {
-      setAlertMessage("");
-    }, 3000);
+    void axiosRequest.post(`/employees/check-out/${user.id}`).then((res) => {
+      console.log(`Checked out ${user.user_email}`);
+      setAlertMessage(`Checked out ${user.user_email}`);
+      setTimeout(() => {
+        setAlertMessage("");
+      }, 3000);
+    });
   };
 
   useEffect(() => {

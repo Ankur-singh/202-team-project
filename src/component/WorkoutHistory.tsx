@@ -4,18 +4,19 @@ import { type WorkoutDetails } from "../types";
 
 export const WorkoutHistory = (): JSX.Element => {
   const [workoutHistory, setWorkoutHistory] = useState<WorkoutDetails[]>([]);
+  const [workoutHistoryLoaded, setWorkoutHistoryLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!workoutHistory.length) {
+    if (!workoutHistoryLoaded) {
       void axiosRequest.get("/members/activities").then((response) => {
-        console.log("==>>", response.data);
         setWorkoutHistory(response.data);
+        setWorkoutHistoryLoaded(true);
       });
     }
-  }, [workoutHistory]);
+  }, [workoutHistoryLoaded]);
 
   return (
-    <div className="mx-auto">
+    <div className="">
       <h2 className="mb-4 mt-8 text-center text-xl font-bold">
         Workout Sessions
       </h2>
@@ -30,18 +31,18 @@ export const WorkoutHistory = (): JSX.Element => {
         return (
           <div
             key={session._id}
-            className="mb-4 flex flex-col items-center justify-between rounded-lg bg-white p-4 shadow-lg lg:flex-row"
+            className="mb-4 flex flex-col items-start justify-between rounded-lg bg-white p-4 shadow-lg"
           >
-            <div className="mb-2 flex flex-col items-center lg:mb-0 lg:items-start">
+            <div className="mb-2 flex flex-col items-start">
               <h3 className="mb-2 text-lg font-semibold">{session.name}</h3>
               <div className="flex items-center text-gray-500">
                 <span>{formattedStartTime}</span>
                 <span className="ml-2 mr-2">&rarr;</span>
                 <span>{formattedEndTime}</span>
-                <span className="ml-2">({duration} min)</span>
+                <span className="ml-4">({duration} min)</span>
               </div>
             </div>
-            <div className="flex items-center text-gray-500">
+            <div className="flex items-start text-gray-500">
               <span>{session.location}</span>
             </div>
           </div>

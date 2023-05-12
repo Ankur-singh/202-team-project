@@ -9,7 +9,7 @@ Authorization: Bearer {{auth_token}}
 POST http://localhost:8000/user
 
 ###
-GET http://localhost:8000/analytics/visitors?location=all
+GET http://tf-lb-20230511204302739600000005-1736991724.us-west-1.elb.amazonaws.com/analytics/visitors?location=all
 Authorization: Bearer {{auth_token}}
 
 ###
@@ -20,3 +20,44 @@ Authorization: Bearer {{auth_token}}
 ###
 GET http://localhost:8000/analytics/classes?location=all&date_range=all
 Authorization: Bearer {{auth_token}}
+
+###
+GET http://tf-lb-20230511204302739600000005-1736991724.us-west-1.elb.amazonaws.com/classes
+Authorization: Bearer {{auth_token}}
+
+###
+PATCH http://tf-lb-20230511204302739600000005-1736991724.us-west-1.elb.amazonaws.com/classes/645d6925ba6373df36f07a65
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+
+{
+  "_id": "645d6925ba6373df36f07a65",
+  "name": "Aerobics",
+  "time": "2023-05-11T14:00:00",
+  "enrollment": 0,
+  "duration": 3600.0,
+  "instructor": null,
+  "description": null,
+  "location": "San Francisco"
+}
+
+###
+PATCH http://tf-lb-20230511204302739600000005-1736991724.us-west-1.elb.amazonaws.com/members/enroll/645d682eba6373df36f07a5f
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXZpc2hhQGdtYWlsLmNvbSIsImlhdCI6MTY4Mzg0NTMxOCwibmJmIjoxNjgzODQ1MzE4LCJqdGkiOiI2NjEzZWZlMS1mMmNiLTRkMzUtOTQ1My1iNTQ3MjY2NWM5ZjAiLCJleHAiOjE2ODY0MzczMTgsInR5cGUiOiJhY2Nlc3MiLCJmcmVzaCI6ZmFsc2UsInJvbGUiOiJNZW1iZXIifQ.-2VlqFU_QdwIYTRWDhEOMZ3nXQUTEZgvGf2dT-LGMx0
+
+###
+GET http://tf-lb-20230511204302739600000005-1736991724.us-west-1.elb.amazonaws.com/members/activities
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXZpc2hhQGdtYWlsLmNvbSIsImlhdCI6MTY4Mzg0NTMxOCwibmJmIjoxNjgzODQ1MzE4LCJqdGkiOiI2NjEzZWZlMS1mMmNiLTRkMzUtOTQ1My1iNTQ3MjY2NWM5ZjAiLCJleHAiOjE2ODY0MzczMTgsInR5cGUiOiJhY2Nlc3MiLCJmcmVzaCI6ZmFsc2UsInJvbGUiOiJNZW1iZXIifQ.-2VlqFU_QdwIYTRWDhEOMZ3nXQUTEZgvGf2dT-LGMx0
+
+###
+POST http://tf-lb-20230511204302739600000005-1736991724.us-west-1.elb.amazonaws.com/members/activities
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZXZpc2hhQGdtYWlsLmNvbSIsImlhdCI6MTY4Mzg0NTMxOCwibmJmIjoxNjgzODQ1MzE4LCJqdGkiOiI2NjEzZWZlMS1mMmNiLTRkMzUtOTQ1My1iNTQ3MjY2NWM5ZjAiLCJleHAiOjE2ODY0MzczMTgsInR5cGUiOiJhY2Nlc3MiLCJmcmVzaCI6ZmFsc2UsInJvbGUiOiJNZW1iZXIifQ.-2VlqFU_QdwIYTRWDhEOMZ3nXQUTEZgvGf2dT-LGMx0
+Content-Type: application/json
+
+{
+  "name": "Treadmill",
+  "start_time": "2023-05-11T23:03:44.291Z",
+  "end_time": "2023-05-11T23:04:44.291Z",
+  "location": "San Jose"
+}

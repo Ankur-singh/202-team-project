@@ -72,3 +72,15 @@ export interface WorkoutDetails {
 //       }
 //     ]
 //   }
+
+export interface ClassSchedule
+{
+  "_id": string,
+  "name": string,
+  "time": string,
+  "enrollment": number,
+  "duration": number,
+  "instructor": string | null,
+  "description": string | null,
+  "location": string
+}
