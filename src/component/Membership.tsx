@@ -133,7 +133,7 @@ const Membership: React.FC<MembershipCardProps> = ({
           </li>
         ))}
       </ul>
-      {user.role === "Admin" && <button className="mt-4 rounded-md bg-cyan-400 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400" onClick={() => navigate("/signup")}>
+      {user?.role === "Admin" && <button className="mt-4 rounded-md bg-cyan-400 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400" onClick={() => navigate("/signup")}>
         Sign Up
        </button>}
     </div>
